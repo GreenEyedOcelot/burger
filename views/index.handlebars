@@ -1,0 +1,39 @@
+<div class="container">
+
+   <div class="row">
+      <div class="col">
+         <form>
+            <div class="form-group" id="nameDiv">
+               <label for="newBurgerName">New Burger:</label>
+               <input type="text" id="newBurgerName" name="burgerField" placeholder="Super Burger">
+               <button type="submit" class="btn btn-primary" id="addBurger">
+            </div> <!-- end form group nameDiv -->
+         </form>
+      </div>
+   </div> <!-- end row-->
+   <div class="row">
+      <div class="col" id="uneatenBurgers">
+         <ol>
+            {{#each burgers}}
+            {{#unless devoured}}
+            <li><span>{{this.burger_name}}</span>&nbsp;
+               <button type="button" class="btn btn-primary" id="devourBurger" data-id="{{this.id}}">Devour Me!</button>
+            </li>
+            {{/unless}}
+            {{/each}}
+         </ol>
+      </div>
+      <div class="col" id="eatenBurgers">
+         <ol>
+            {{#each burgers}}
+            {{#if devoured}}
+            <li>
+               <span> {{this.burger_name}}</span>
+            </li>
+
+            {{/if}}
+            {{/each}}
+         </ol>
+      </div>
+   </div>
+</div>
